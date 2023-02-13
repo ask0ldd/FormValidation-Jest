@@ -47,15 +47,15 @@ class Form {
         }
     }
 
-    #checkName(fieldId)
+    #checkName(fieldId, vdocument)
     {
-        const fieldValue = document.querySelector(fieldId).value.trim()
+        const fieldValue = vdocument ? vdocument.querySelector(fieldId).value.trim() : document.querySelector(fieldId).value.trim()
         return this.#nameRegex.test(fieldValue)
     }
 
-    testName(fieldId)
+    testName(fieldId, vdocument)
     {
-        const fieldValue = document.querySelector(fieldId).value.trim()
+        const fieldValue = vdocument.querySelector(fieldId).value.trim()
         return this.#nameRegex.test(fieldValue)
     }
 
@@ -98,6 +98,8 @@ class Form {
         }
 
         getValidationResult[input]() === false ? this.errorNodes[input].show() : this.errorNodes[input].hide()
+
+        return getValidationResult[input]()
     }
 
     validate()

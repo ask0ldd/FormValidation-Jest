@@ -4,7 +4,6 @@ global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
 const validationHelper = require('../validation')
-const myForm = require('../form')
 const {JSDOM} = require('jsdom')
 const fs = require('fs')
 
@@ -20,7 +19,13 @@ const html = fs.readFileSync('./index.html')
 const dom = new JSDOM(html)
 const document = dom.window.document
 
+global.document = dom.window.document;
+global.window = dom.window;
+
+const myForm = require('../form')
+
 test('value method', () => {
-  document.querySelector("#lastname").value="aaaaa"
-  expect(validationHelper.checkName(document.querySelector("#lastname").value)).toBeTruthy()
+  document.querySelector("#lastname").value="true"
+  // console.log(document.querySelector("#lastname").value)
+  expect(myForm.testName("#lastname", document)).toBeTruthy()
 })

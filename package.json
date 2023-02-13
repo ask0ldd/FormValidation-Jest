@@ -4,6 +4,6 @@
     "jest-environment-jsdom": "^29.4.2"
   },
   "scripts": {
-    "test": "jest --coverage --noStackTrace --silent"
+    "test": "jest --coverage --noStackTrace --silent=false"
   }
 }
