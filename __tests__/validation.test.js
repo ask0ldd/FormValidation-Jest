@@ -4,7 +4,7 @@ global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
 const validationHelper = require('../validation')
-const {JSDOM} = require('jsdom')
+const { fireEvent, screen, waitFor } = require('@testing-library/dom')
 const fs = require('fs')
 
 test('value method', () => {
@@ -15,17 +15,17 @@ test('value method', () => {
   expect(validationHelper.checkDate("2000-11-11")).toBeTruthy()
 })
 
-const html = fs.readFileSync('./index.html')
-const dom = new JSDOM(html)
-const document = dom.window.document
-
-global.document = dom.window.document;
-global.window = dom.window;
-
 const myForm = require('../form')
 
 test('value method', () => {
-  document.querySelector("#lastname").value="true"
-  // console.log(document.querySelector("#lastname").value)
-  expect(myForm.testName("#lastname", document)).toBeTruthy()
+
+  const html = fs.readFileSync('./index.html', 'utf8')
+  const startPos = html.indexOf("<body>") + "<body>".length
+  const endPos = html.indexOf("</body>") + "</body>".length
+  console.log(typeof(html))
+  const bodyContent = html.substring(startPos,endPos).trim();
+  document.body.innerHTML = bodyContent
+
+  screen.getByTestId("firstname-input").value="true"
+  expect(screen.getByTestId("firstname-input").value).toBeTruthy()
 })

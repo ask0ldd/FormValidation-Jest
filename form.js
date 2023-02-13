@@ -47,15 +47,16 @@ class Form {
         }
     }
 
-    #checkName(fieldId, vdocument)
+    #checkName(fieldId)
     {
-        const fieldValue = vdocument ? vdocument.querySelector(fieldId).value.trim() : document.querySelector(fieldId).value.trim()
+        const fieldValue = document.querySelector(fieldId).value.trim()
         return this.#nameRegex.test(fieldValue)
     }
 
     testName(fieldId, vdocument)
     {
-        const fieldValue = vdocument.querySelector(fieldId).value.trim()
+        document = global.document
+        const fieldValue = document.querySelector(fieldId).value.trim()
         return this.#nameRegex.test(fieldValue)
     }
 
