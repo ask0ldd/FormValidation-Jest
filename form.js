@@ -55,7 +55,7 @@ class Form {
 
     testName(fieldId, vdocument)
     {
-        document = global.document
+        //document = global.document
         const fieldValue = document.querySelector(fieldId).value.trim()
         return this.#nameRegex.test(fieldValue)
     }

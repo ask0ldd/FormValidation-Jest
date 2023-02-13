@@ -1,10 +1,11 @@
 {
   "devDependencies": {
     "@testing-library/dom": "^8.20.0",
+    "@testing-library/user-event": "^14.4.3",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage --noStackTrace --silent=none"
   }
 }

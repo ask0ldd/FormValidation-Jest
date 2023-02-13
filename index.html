@@ -13,7 +13,7 @@
         <div>
             <label for="firstname">Firstname</label>
             <input data-testid="firstname-input" name="firstname" id="firstname" type="text" oninput="return myForm.liveValidate('firstname')"/>
-            <p class="errorMessage" id="firstnameError">Lastname should be at least 2 characters long.</p>
+            <p class="errorMessage" data-testid="firstname-error" id="firstnameError">Lastname should be at least 2 characters long.</p>
         </div>
         <div>
             <label for="lastname">Lastname</label>

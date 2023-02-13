@@ -1,7 +1,7 @@
 /**  * @jest-environment jsdom  */
-const { TextEncoder, TextDecoder } = require('util')
+/*const { TextEncoder, TextDecoder } = require('util')
 global.TextEncoder = TextEncoder
-global.TextDecoder = TextDecoder
+global.TextDecoder = TextDecoder*/
 
 const validationHelper = require('../validation')
 const { fireEvent, screen, waitFor } = require('@testing-library/dom')
@@ -22,7 +22,6 @@ test('value method', () => {
   const html = fs.readFileSync('./index.html', 'utf8')
   const startPos = html.indexOf("<body>") + "<body>".length
   const endPos = html.indexOf("</body>") + "</body>".length
-  console.log(typeof(html))
   const bodyContent = html.substring(startPos,endPos).trim();
   document.body.innerHTML = bodyContent
 
