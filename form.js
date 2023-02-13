@@ -53,6 +53,12 @@ class Form {
         return this.#nameRegex.test(fieldValue)
     }
 
+    testName(fieldId)
+    {
+        const fieldValue = document.querySelector(fieldId).value.trim()
+        return this.#nameRegex.test(fieldValue)
+    }
+
     #checkDate(fieldId)
     {
         const fieldValue = document.querySelector(fieldId).value.trim()
@@ -122,6 +128,6 @@ class Form {
 
 }
 
-module.exports = Form
-
 const myForm = new Form()
+
+module.exports = myForm
