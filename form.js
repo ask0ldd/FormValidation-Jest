@@ -32,7 +32,7 @@ class Form {
     {
         this.#nameRegex = new RegExp ("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}$")
         this.#zeroNinetyNineRegex = new RegExp ("^[0-9]{1,2}$")
-        this.#emailRegex = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$")
+        this.#emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
         this.#dateRegex = new RegExp("^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$") // ([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) // ^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$
         this.#isOneValidationFalse = (element) => element === false
 
@@ -41,10 +41,17 @@ class Form {
             'firstname' : new errorNodesGroup('#firstnameError', '#firstname'), // associer input pr pouvoir l'highlighter : errorNodesHandler(errorelement, input) / const errorHandlers = {}
             'lastname' : new errorNodesGroup('#lastnameError', '#lastname'),
             'birthdate' : new errorNodesGroup('#birthdateError', '#birthdate'),
+            'email' : new errorNodesGroup('#emailError', '#email'),
             'games' : new errorNodesGroup('#gamesownedError', '#gamesowned'),
             'studios' : new errorNodesGroup('#studiosError'),
             'conditions' : new errorNodesGroup('#conditionsError', '#tos-checkbox')
         }
+    }
+
+    #checkEmail(fieldId)
+    {
+        const fieldValue = document.querySelector(fieldId).value.trim()
+        return this.#emailRegex.test(fieldValue)
     }
 
     #checkName(fieldId)
@@ -93,6 +100,7 @@ class Form {
             'firstname' : () => this.#checkName('#firstname'),
             'lastname' : () => this.#checkName('#lastname'),
             'birthdate' : () => this.#checkDate('#birthdate'),
+            'email' : () => this.#checkEmail('#email'),
             'games' : () => this.#checkNumber('#gamesowned'), // min max quantity ?
             'studios' : () => this.#checkStudios('studios'),
             'conditions' : () => document.querySelector('#tos-checkbox').checked
@@ -112,6 +120,7 @@ class Form {
             'firstname' : this.#checkName('#firstname'),
             'lastname' : this.#checkName('#lastname'),
             'birthdate' : this.#checkDate('#birthdate'),
+            'email' : this.#checkEmail('#email'),
             'games' : this.#checkNumber('#gamesowned'), // min max quantity ?
             'studios' : this.#checkStudios('studios'),
             'conditions' : document.querySelector('#tos-checkbox').checked

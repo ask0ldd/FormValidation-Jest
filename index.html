@@ -27,7 +27,7 @@
         </div>
         <div>
             <label for="email">Email</label>
-            <input data-testid="email-input" name="email" id="email" type="text"/>
+            <input data-testid="email-input" name="email" id="email" type="text" oninput="return myForm.liveValidate('email')"/>
             <p class="errorMessage" id="emailError">Not a valid email format.</p>
         </div>
         <div>
