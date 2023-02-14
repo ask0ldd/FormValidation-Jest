@@ -17,28 +17,28 @@
         </div>
         <div>
             <label for="lastname">Lastname</label>
-            <input name="lastname" id="lastname" type="text" oninput="return myForm.liveValidate('lastname')"/>
+            <input data-testid="lastname-input" name="lastname" id="lastname" type="text" oninput="return myForm.liveValidate('lastname')"/>
             <p class="errorMessage" id="lastnameError">Lastname should be at least 2 characters long.</p>
         </div>
         <div>
             <label for="birthdate">Birthdate</label>
-            <input type="date" id="birthdate" name="birthdate" onblur="return myForm.liveValidate('birthdate')"/>
+            <input data-testid="birthdate-input" type="date" id="birthdate" name="birthdate" onblur="return myForm.liveValidate('birthdate')"/>
             <p class="errorMessage" id="birthdateError">Type a valid date.</p>
         </div>
         <div>
             <label for="email">Email</label>
-            <input name="email" id="email" type="text"/>
+            <input data-testid="email-input" name="email" id="email" type="text"/>
             <p class="errorMessage" id="emailError">Not a valid email format.</p>
         </div>
         <div>
             <label for="gamesowned">How many games do you own ?</label>
-            <input name="gamesowned" id="gamesowned" type="text" oninput="return myForm.liveValidate('games')"/>
+            <input data-testid="gamesowned-input" name="gamesowned" id="gamesowned" type="text" oninput="return myForm.liveValidate('games')"/>
             <p class="errorMessage" id="gamesownedError">Require a number between 0 and 99.</p>
         </div>
         <div>
             <label>Your favorite gaming studio ?</label>
             <div class="radioContainer">
-                <input class="radioButton" type="radio" id="studio1" name="studios" value="Ubisoft" onclick="return myForm.liveValidate('studios')"/>
+                <input data-testid="radiostudio1-input" class="radioButton" type="radio" id="studio1" name="studios" value="Ubisoft" onclick="return myForm.liveValidate('studios')"/>
                 <label class="radioButtonLabel" for="studio1">Ubisoft</label>
             </div>
             <div class="radioContainer">
@@ -58,7 +58,7 @@
             </div>
             <p class="errorMessage" id="conditionsError">You must accept the TOS.</p>
         </div>
-        <input class="submitButton" type="submit" class="button" value="Submit" />
+        <input data-testid="submit-button" class="submitButton" type="submit" class="button" value="Submit" />
     </form>
     <script src="form.js"></script>
 </body>
