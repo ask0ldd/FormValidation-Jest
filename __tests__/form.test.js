@@ -11,6 +11,7 @@ const setValidForm = () => {
     screen.getByTestId("email-input").value="rostand@rostand.com"
     screen.getByTestId("gamesowned-input").value="2"
     screen.getByTestId("radiostudio1-input").checked = true
+    screen.getByTestId("tos-checkbox").checked = true
 }
 
 describe('given that i am on the index page', () => {
@@ -57,6 +58,15 @@ describe('given that i am on the index page', () => {
                 screen.getByTestId(key).value = value
                 expect(myForm.validate()).toBeFalsy()
             }
+            setValidForm()
+            expect(myForm.validate()).toBeTruthy()
+            screen.getByTestId("tos-checkbox").checked = false
+            expect(myForm.validate()).toBeFalsy()
+            setValidForm()
+            expect(myForm.validate()).toBeTruthy()
+            screen.getByTestId("radiostudio1-input").checked = false
+            expect(myForm.validate()).toBeFalsy()
+            
         })
 
     })

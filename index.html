@@ -42,18 +42,18 @@
                 <label class="radioButtonLabel" for="studio1">Ubisoft</label>
             </div>
             <div class="radioContainer">
-                <input class="radioButton" type="radio" id="studio2" name="studios" value="Naughty Dog" onclick="return myForm.liveValidate('studios')"/>
+                <input data-testid="radiostudio2-input" class="radioButton" type="radio" id="studio2" name="studios" value="Naughty Dog" onclick="return myForm.liveValidate('studios')"/>
                 <label class="radioButtonLabel" for="studio2">Naughty Dog</label>
             </div>
             <div class="radioContainer">
-                <input class="radioButton" type="radio" id="studio3" name="studios" value="Riot Games" onclick="return myForm.liveValidate('studios')" />
+                <input data-testid="radiostudio3-input" class="radioButton" type="radio" id="studio3" name="studios" value="Riot Games" onclick="return myForm.liveValidate('studios')" />
                 <label class="radioButtonLabel" for="studio3">Riot Games</label>
             </div>
             <p class="errorMessage" id="studiosError">Sélectionnez un studio.</p>
             </div>
         <div>
             <div class="tos-container">
-                <input class="tos-input" type="checkbox" id="tos-checkbox" onclick="return myForm.liveValidate('conditions')" checked/>
+                <input data-testid="tos-checkbox" class="tos-input" type="checkbox" id="tos-checkbox" onclick="return myForm.liveValidate('conditions')" checked/>
                 <label class="tos-label" for="tos-checkbox">I have read and agreed to the TOS.</label> 
             </div>
             <p class="errorMessage" id="conditionsError">You must accept the TOS.</p>
