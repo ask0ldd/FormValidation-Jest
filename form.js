@@ -32,11 +32,11 @@ class Form {
     {
         this.#nameRegex = new RegExp ("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,}$")
         this.#zeroNinetyNineRegex = new RegExp ("^[0-9]{1,2}$")
-        this.#emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+        this.#emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") // imperfect regex : validates eeazezaeaz@ezaeazea for ex
         this.#dateRegex = new RegExp("^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$") // ([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) // ^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$
         this.#isOneValidationFalse = (element) => element === false
 
-        // object grouping error message nodes / !! get it out of all functions
+        // object grouping error message nodes
         this.errorNodes = {
             'firstname' : new errorNodesGroup('#firstnameError', '#firstname'), // associer input pr pouvoir l'highlighter : errorNodesHandler(errorelement, input) / const errorHandlers = {}
             'lastname' : new errorNodesGroup('#lastnameError', '#lastname'),
