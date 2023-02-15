@@ -3,6 +3,16 @@ const { fireEvent, screen, waitFor } = require('@testing-library/dom')
 const jestdom = require('@testing-library/jest-dom')
 const fs = require('fs')
 
+            
+const setValidForm = () => {
+    screen.getByTestId("firstname-input").value="edmond"
+    screen.getByTestId("lastname-input").value="rostand"
+    screen.getByTestId("birthdate-input").value="2004-07-22"
+    screen.getByTestId("email-input").value="rostand@rostand.com"
+    screen.getByTestId("gamesowned-input").value="2"
+    screen.getByTestId("radiostudio1-input").checked = true
+}
+
 describe('given that i am on the index page', () => {
         
     describe('and the form is loaded', () => {
@@ -30,12 +40,7 @@ describe('given that i am on the index page', () => {
 
             const myForm = require('../form')
             
-            screen.getByTestId("firstname-input").value="edmond"
-            screen.getByTestId("lastname-input").value="rostand"
-            screen.getByTestId("birthdate-input").value="2004-07-22"
-            screen.getByTestId("email-input").value="rostand@amazon.com"
-            screen.getByTestId("gamesowned-input").value="2"
-            screen.getByTestId("radiostudio1-input").checked = true
+            setValidForm()
 
             expect(myForm.validate()).toBeTruthy()
         })
@@ -43,15 +48,6 @@ describe('given that i am on the index page', () => {
         test('if any input is wrongly populated, the form can pass the global validation', () => {
 
             const myForm = require('../form')
-            
-            const setValidForm = () => {
-                screen.getByTestId("firstname-input").value="edmond"
-                screen.getByTestId("lastname-input").value="rostand"
-                screen.getByTestId("birthdate-input").value="2004-07-22"
-                screen.getByTestId("email-input").value="rostand@rostand.com"
-                screen.getByTestId("gamesowned-input").value="2"
-                screen.getByTestId("radiostudio1-input").checked = true
-            }
 
             const inputs = {"firstname-input" : "***", "lastname-input" : "***", "birthdate-input" : "", "email-input" : "***", "gamesowned-input" : ""} // add radiobutton
             
