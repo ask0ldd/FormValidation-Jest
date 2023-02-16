@@ -20,6 +20,8 @@ class errorNodesGroup {
 
 }
 
+
+
 // class Form
 class Form {
     #nameRegex
@@ -47,15 +49,25 @@ class Form {
             'conditions' : new errorNodesGroup('#conditionsError', '#tos-checkbox')
         }
 
-        // useless : to test jest mock property
+        // useless : to test jest.replaceProperty(myForm, 'five', 6)
         this.five = 5
+
+        this.test = 2
        
     }
 
-    // useless : to test jest mock method
+    // useless : to test jest.spyOn(myForm, 'getFive').mockReturnValue(6)
     getFive(){
+        this.test = 3
         return 5
     }
+
+    // useless : to test myForm.getFive = jest.fn().mockReturnValue(6)
+    getSeven(){
+        this.test = 13
+        return 7
+    }
+
 
     #checkEmail(fieldId)
     {

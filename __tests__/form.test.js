@@ -118,7 +118,7 @@ test('mocked myForm.five should be 6', ()=> {
 
     const myForm = require('../form')
 
-    jest.replaceProperty(myForm, 'five', 6);
+    jest.replaceProperty(myForm, 'five', 6)
 
     expect(myForm.five).toEqual(6)
 })
@@ -137,8 +137,24 @@ test('mocked myForm.getFive() should be 6', ()=> {
 
     const myForm = require('../form')
 
-    //myForm.getFive = jest.fn().mockReturnValue(6)
     jest.spyOn(myForm, 'getFive').mockReturnValue(6)
 
     expect(myForm.getFive()).toEqual(6)
+    expect(myForm.test).toEqual(3)
+})
+
+test('mocked myForm.getSix() should be 6', ()=> {
+
+    const html = fs.readFileSync('./index.html', 'utf8')
+    const startPos = html.indexOf("<body>") + "<body>".length
+    const endPos = html.indexOf("</body>") + "</body>".length
+    const bodyContent = html.substring(startPos,endPos).trim()
+    document.body.innerHTML = bodyContent
+
+    const myForm = require('../form')
+
+    myForm.getFive = jest.fn().mockReturnValue(6)
+
+    expect(myForm.getFive()).toEqual(6)
+    expect(myForm.test).not.toEqual(13)
 })
