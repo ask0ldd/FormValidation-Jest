@@ -89,7 +89,7 @@ test('function should return 5', ()=> {
     expect(myForm.getFive()).toEqual(5)
 })
 
-test('myForm.five should be 5', ()=> {
+test('myForm.five should be 5 by default', ()=> {
 
     const html = fs.readFileSync('./index.html', 'utf8')
     const startPos = html.indexOf("<body>") + "<body>".length
@@ -108,7 +108,7 @@ test('myForm.five should be 5', ()=> {
  * Hijack Value of an object property 
  * **/
 
-test('mocked myForm.five should be 6', ()=> {
+test('mocked myForm.five be 6 instead of 5', ()=> {
 
     const html = fs.readFileSync('./index.html', 'utf8')
     const startPos = html.indexOf("<body>") + "<body>".length
@@ -127,7 +127,7 @@ test('mocked myForm.five should be 6', ()=> {
  * Hijack Method of an object
  * **/
 
-test('mocked myForm.getFive() should be 6', ()=> {
+test('myForm.getFive() should be executed and return 6 instead of 5', ()=> {
 
     const html = fs.readFileSync('./index.html', 'utf8')
     const startPos = html.indexOf("<body>") + "<body>".length
@@ -143,7 +143,7 @@ test('mocked myForm.getFive() should be 6', ()=> {
     expect(myForm.test).toEqual(3)
 })
 
-test('mocked myForm.getSix() should be 6', ()=> {
+test('myForm.getSix() should not be executed and return 6 instead of 5', ()=> {
 
     const html = fs.readFileSync('./index.html', 'utf8')
     const startPos = html.indexOf("<body>") + "<body>".length
