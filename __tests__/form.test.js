@@ -104,6 +104,10 @@ test('myForm.five should be 5', ()=> {
     expect(myForm.five).toEqual(5)
 })
 
+/** 
+ * Hijack Value of an object property 
+ * **/
+
 test('mocked myForm.five should be 6', ()=> {
 
     const html = fs.readFileSync('./index.html', 'utf8')
@@ -118,6 +122,10 @@ test('mocked myForm.five should be 6', ()=> {
 
     expect(myForm.five).toEqual(6)
 })
+
+/** 
+ * Hijack Method of an object
+ * **/
 
 test('mocked myForm.getFive() should be 6', ()=> {
 
