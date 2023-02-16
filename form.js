@@ -56,13 +56,13 @@ class Form {
        
     }
 
-    // useless : to test jest.spyOn(myForm, 'getFive').mockReturnValue(6)
+    // useless : to test jest.spyOn(myForm, 'getFive').mockReturnValue(6) // let the function be executed but replace the return value
     getFive(){
         this.test = 3
         return 5
     }
 
-    // useless : to test myForm.getFive = jest.fn().mockReturnValue(6)
+    // useless : to test myForm.getFive = jest.fn().mockReturnValue(6) // replace the whole function
     getSeven(){
         this.test = 13
         return 7
