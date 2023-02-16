@@ -72,3 +72,34 @@ describe('given that i am on the index page', () => {
     })
 
 })
+
+
+/** test variable replacement & function replacement **/
+
+test('function should return 5', ()=> {
+
+    const html = fs.readFileSync('./index.html', 'utf8')
+    const startPos = html.indexOf("<body>") + "<body>".length
+    const endPos = html.indexOf("</body>") + "</body>".length
+    const bodyContent = html.substring(startPos,endPos).trim()
+    document.body.innerHTML = bodyContent
+
+    const myForm = require('../form')
+
+    expect(myForm.getFive()).toEqual(5)
+})
+
+test('myForm.five should be 5', ()=> {
+
+    const html = fs.readFileSync('./index.html', 'utf8')
+    const startPos = html.indexOf("<body>") + "<body>".length
+    const endPos = html.indexOf("</body>") + "</body>".length
+    const bodyContent = html.substring(startPos,endPos).trim()
+    document.body.innerHTML = bodyContent
+
+    const myForm = require('../form')
+
+
+
+    expect(myForm.five).toEqual(5)
+})

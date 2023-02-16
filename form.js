@@ -46,7 +46,13 @@ class Form {
             'studios' : new errorNodesGroup('#studiosError'),
             'conditions' : new errorNodesGroup('#conditionsError', '#tos-checkbox')
         }
+
+        this.five = 5
        
+    }
+
+    getFive(){
+        return 5
     }
 
     #checkEmail(fieldId)
