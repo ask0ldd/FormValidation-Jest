@@ -7,12 +7,16 @@ const validationHelper = require('../validation')
 const { fireEvent, screen, waitFor } = require('@testing-library/dom')
 const fs = require('fs')
 
-test('value method', () => {
+test('test checkName', () => {
     expect(validationHelper.checkName("aaa")).toBeTruthy()
   })
 
-test('value method', () => {
+test('test checkDate', () => {
   expect(validationHelper.checkDate("2000-11-11")).toBeTruthy()
+})
+
+test('test checkNumber', () => {
+  expect(validationHelper.checkNumber("50")).toBeTruthy()
 })
 
 const myForm = require('../form')

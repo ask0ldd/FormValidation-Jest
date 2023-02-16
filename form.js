@@ -46,6 +46,7 @@ class Form {
             'studios' : new errorNodesGroup('#studiosError'),
             'conditions' : new errorNodesGroup('#conditionsError', '#tos-checkbox')
         }
+       
     }
 
     #checkEmail(fieldId)
