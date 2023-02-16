@@ -103,3 +103,18 @@ test('myForm.five should be 5', ()=> {
 
     expect(myForm.five).toEqual(5)
 })
+
+test('mocked myForm.five should be 6', ()=> {
+
+    const html = fs.readFileSync('./index.html', 'utf8')
+    const startPos = html.indexOf("<body>") + "<body>".length
+    const endPos = html.indexOf("</body>") + "</body>".length
+    const bodyContent = html.substring(startPos,endPos).trim()
+    document.body.innerHTML = bodyContent
+
+    const myForm = require('../form')
+
+    jest.replaceProperty(myForm, 'five', 6);
+
+    expect(myForm.five).toEqual(6)
+})
