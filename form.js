@@ -47,10 +47,12 @@ class Form {
             'conditions' : new errorNodesGroup('#conditionsError', '#tos-checkbox')
         }
 
+        // useless : to test jest mock property
         this.five = 5
        
     }
 
+    // useless : to test jest mock method
     getFive(){
         return 5
     }
